@@ -19,8 +19,7 @@ def is_spam(text):
     result = imported_model.predict([f"{text}"])
     if result[0] == 0:
         return "not spam."
-    else:
-        return "spam."
+    return "spam."
 
 
 if __name__ == "__main__":
