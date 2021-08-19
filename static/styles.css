@@ -1,0 +1,17 @@
+.border {
+  border-radius: 25px;
+  border: 20px solid #0400ff;
+  padding: 20px;
+  width: 500px;
+  height: 170px;
+}
+
+.w3-allerta {
+  font-family: "Allerta Stencil", Sans-serif;
+  text-shadow: 2px 2px yellow;
+}
+
+#check {
+  font-size: xx-large;
+  text-shadow: 2px 2px yellow;
+}

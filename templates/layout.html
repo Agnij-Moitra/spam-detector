@@ -8,13 +8,14 @@
     />
     <title>Spam Detector</title>
     <link rel="stylesheet" href="../static/bootstrap.min.css" />
+    <link rel="stylesheet" href="../static/styles.css" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Lato:300,400,700"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css"
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css"
     />
   </head>
 
@@ -46,8 +47,8 @@
       <section class="portfolio-block contact">
         <div class="container">
           <div class="heading">
-            <h2>Check if A message is spam or not</h2>
-          </div>
+            <h2 class="w3-xxxlarge w3-allerta w3-center">Check if A message is spam or not</h2>
+          </div class='border w3-container w3-white w3-allerta'>
           {% block body %}{% endblock %}
         </div>
       </section>
@@ -60,5 +61,7 @@
         new Pikaday({ field: this });
       });
     </script>
+
+    <!-- <div class="tenor-gif-embed" data-postid="9978489" data-share-method="host" data-aspect-ratio="1" data-width="100%"><a href="https://tenor.com/view/minimalist-gif-9978489">Minimalist GIF</a>from <a href="https://tenor.com/search/minimalist-gifs">Minimalist GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script> -->
   </body>
 </html>
