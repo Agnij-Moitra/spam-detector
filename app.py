@@ -13,11 +13,6 @@ def index():
     return render_template("index.html")
 
 
-@app.route('/check/<message>')
-def check(message):
-    return render_template("check.html")
-
-
 def is_spam(text):
     with open('model_pickle', "rb") as f:
         imported_model = pickle.load(f)
