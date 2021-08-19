@@ -1,0 +1,13 @@
+{% extends "layout.html" %} {% block body %}
+<form action="/" method="post" class="form-group">
+    <input
+      class="form-control item"
+      name="message"
+      autofocus
+      type="text"
+      placeholder="Enter the message"
+    ></input> <br>
+    <input class="btn btn-primary btn-block btn-lg" type="submit">
+    </input>
+</form>
+{% endblock %}
