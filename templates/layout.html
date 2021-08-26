@@ -19,7 +19,7 @@
   </head>
   <body">
     <div class="container">
-      <div class="card">
+      <div class="card" data-tilt data-tilt-glare data-tilt-max-glare="0.1" data-tilt-axis="x">
         <div class="content">
           {% block body %}{% endblock %}
         </div>
@@ -30,13 +30,15 @@
     integrity="sha512-g7P3hXMgoVKE0NI6hsCz2pVqUaSbvAkoC5QEOG3o7DyvwZclAKgZNbT3HRHlUBEEtmaChd52UO0KcLhsDrQfmQ=="
     crossorigin="anonymous" 
     referrerpolicy="no-referrer"></script>
-    <script>
+    <!-- <script>
       	VanillaTilt.init(document.querySelectorAll(".card"), {
 		    max: 25,
-		    speed: 400,
+		    speed: 200,
         glare: true,
-        "max-glare": 0.5,
+        "max-glare": 0.5, 
+        gyroscopeMaxAngleX: 0,
+        gyroscopeMinAngleX: 0, 
       	});
-    </script>
+    </script> -->
   </body>
 </html>
