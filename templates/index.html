@@ -1,12 +1,8 @@
 {% extends "layout.html" %} {% block body %}
-<form action="/" method="post" class="form-group border w3-allerta">
-    <input
-      class="form-control item"
-      name="message"
-      autofocus
-      type="text"
-      placeholder="Enter the message"
-    ></input> <br>
+<form action="/" method="post" class="form-group border w3-allerta" style="height: fit-content;">
+    
+    <textarea class="form-control item" autofocus placeholder="Enter the message" name="message"></textarea>
+    <br>
     <input class="btn btn-primary btn-block btn-lg" type="submit">
     </input>
 </form>
