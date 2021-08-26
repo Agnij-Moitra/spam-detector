@@ -1,67 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" class="color">
   <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
-    />
-    <title>Spam Detector</title>
-    <link rel="stylesheet" href="../static/bootstrap.min.css" />
+    <meta charset="UTF-8" />
     <link rel="stylesheet" href="../static/styles.css" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Lato:300,400,700"
     />
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css"
-    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" crossorigin="anonymous"></link>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.1/vanilla-tilt.js"
+    integrity="sha512-g7P3hXMgoVKE0NI6hsCz2pVqUaSbvAkoC5QEOG3o7DyvwZclAKgZNbT3HRHlUBEEtmaChd52UO0KcLhsDrQfmQ=="
+    crossorigin="anonymous" 
+    referrerpolicy="no-referrer"></script>
+    <title>Spam Message Detector</title>
   </head>
-
-  <body>
-    <nav
-      class="
-        navbar navbar-dark navbar-expand-lg
-        fixed-top
-        bg-white
-        portfolio-navbar
-        gradient
-      "
-    >
-      <div class="container">
-        <a class="navbar-brand logo" href="#">Spam Detector</a
-        ><button
-          data-toggle="collapse"
-          class="navbar-toggler"
-          data-target="#navbarNav"
-        >
-          <span class="sr-only">Toggle navigation</span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="nav navbar-nav ml-auto"></ul>
-        </div>
-      </div>
-    </nav>
-    <main class="page contact-page">
-      <section class="portfolio-block contact">
-        <div class="container">
-          <div class="heading">
-            <h2 class="w3-xxxlarge w3-allerta w3-center">Check if A message is spam or not</h2>
-          </div class='border w3-container w3-white w3-allerta'>
+  <body">
+    <div class="container">
+      <div class="card" data-tilt data-tilt-glare data-tilt-max-glare="0.1" data-tilt-axis="x">
+        <div class="content">
           {% block body %}{% endblock %}
         </div>
-      </section>
-    </main>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js"></script>
-    <script>
-      $(".datepicker").each(function () {
-        new Pikaday({ field: this });
-      });
-    </script>
-
-    <!-- <div class="tenor-gif-embed" data-postid="9978489" data-share-method="host" data-aspect-ratio="1" data-width="100%"><a href="https://tenor.com/view/minimalist-gif-9978489">Minimalist GIF</a>from <a href="https://tenor.com/search/minimalist-gifs">Minimalist GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script> -->
+      </div>
+    </div>
+    <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.1/vanilla-tilt.js"
+    integrity="sha512-g7P3hXMgoVKE0NI6hsCz2pVqUaSbvAkoC5QEOG3o7DyvwZclAKgZNbT3HRHlUBEEtmaChd52UO0KcLhsDrQfmQ=="
+    crossorigin="anonymous" 
+    referrerpolicy="no-referrer"></script>
+    <!-- <script>
+      	VanillaTilt.init(document.querySelectorAll(".card"), {
+		    max: 25,
+		    speed: 200,
+        glare: true,
+        "max-glare": 0.5, 
+        gyroscopeMaxAngleX: 0,
+        gyroscopeMinAngleX: 0, 
+      	});
+    </script> -->
   </body>
 </html>

@@ -16,11 +16,13 @@ def index():
 def is_spam(text):
     with open('model_pickle', "rb") as f:
         imported_model = pickle.load(f)
+    text = str(text)
+    text = text.replace("\n", " ")
     result = imported_model.predict([f"{text}"])
     if result[0] == 0:
-        return "not spam."
-    return "spam."
+        return "not spam"
+    return "spam!"
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True) 
