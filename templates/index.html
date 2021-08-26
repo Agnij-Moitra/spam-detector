@@ -1,13 +1,9 @@
 {% extends "layout.html" %} {% block body %}
-<form action="/" method="post" class="form-group border w3-allerta">
-    <input
-      class="form-control item"
-      name="message"
-      autofocus
-      type="text"
-      placeholder="Enter the message"
-    ></input> <br>
-    <input class="btn btn-primary btn-block btn-lg" type="submit">
+<h1>Check If A Message Is Spam</h1>
+<form action="/" method="post" class="">
+  <textarea name="message" class="input" cols="37" rows="12"
+  ></textarea> <br>
+    <input class="submit" type="submit" value="Check">
     </input>
-</form>
+</form>  
 {% endblock %}
