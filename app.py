@@ -3,6 +3,7 @@ import pickle
 import language_tool_python
 
 app = Flask(__name__)
+tool = language_tool_python.LanguageTool('en-US')
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -51,5 +52,4 @@ def intensly_spam(text):
 
 
 if __name__ == "__main__":
-    tool = language_tool_python.LanguageTool('en-US')
     app.run(debug=True)
