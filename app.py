@@ -1,9 +1,10 @@
 from flask import Flask, render_template, request
 import pickle
-import language_tool_python
+from gingerit.gingerit import GingerIt
 
 app = Flask(__name__)
-tool = language_tool_python.LanguageTool('en-US')
+
+parser = GingerIt()
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -19,16 +20,12 @@ def is_spam(text):
     with open('model_pickle', "rb") as f:
         imported_model = pickle.load(f)
     text = str(text)
-    text = text.replace("\n", " ")
+    text = text.replace("\n", " ").lower()
     result = imported_model.predict([f"{text}"])
     if result[0] == 1:
         return "spam!"
-    intensly_spam(text)
 
-
-def intensly_spam(text):
-    text = text.capitalize()
-    li = text.lower().split()
+    li = text.split()
     long_words = ["thiruvananthapuram",
                   "pneumonoultramicroscopicsilicovolcanoconiosis",
                   "hippopotomonstrosesquippedaliophobia",
@@ -38,17 +35,17 @@ def intensly_spam(text):
                   "antidisestablishmentarianism",
                   "honorificabilitudinitatibus",
                   "thyroparathyroidectomized",
-                  "dichlorodifluoromethane", "incomprehensibilities"]
+                  "dichlorodifluoromethane",
+                  "incomprehensibilities"]
     for i in li:
         if i not in long_words:
             if len(i) >= 19:
                 return "spam!"
-    matches = tool.check(text)
-    try:
-        if len(matches[0].__dict__.get("replacements")) == 0:
+
+    for j in range(len(parser.parse(text)["corrections"])):
+        if parser.parse(text)["corrections"][j]["definition"] == None:
             return "spam!"
-    except:
-        return "not spam"
+    return "not spam"
 
 
 if __name__ == "__main__":
