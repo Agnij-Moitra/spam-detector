@@ -37,8 +37,7 @@ def intensly_spam(text):
                   "antidisestablishmentarianism",
                   "honorificabilitudinitatibus",
                   "thyroparathyroidectomized",
-                  "dichlorodifluoromethane",
-                  "incomprehensibilities"]
+                  "dichlorodifluoromethane", "incomprehensibilities"]
     for i in li:
         if i not in long_words:
             if len(i) >= 19:
