@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 import pickle
 from gingerit.gingerit import GingerIt
+import re
 
 app = Flask(__name__)
 
@@ -19,13 +20,12 @@ def index():
 def is_spam(text):
     with open('model_pickle', "rb") as f:
         imported_model = pickle.load(f)
-    text = str(text)
-    text = text.replace("\n", " ").lower()
+    text = str(text).lower()
     result = imported_model.predict([f"{text}"])
     if result[0] == 1:
         return "spam!"
 
-    li = text.split()
+    li = re.findall(r"[\w']+", text)
     long_words = ["thiruvananthapuram",
                   "pneumonoultramicroscopicsilicovolcanoconiosis",
                   "hippopotomonstrosesquippedaliophobia",
@@ -38,14 +38,20 @@ def is_spam(text):
                   "dichlorodifluoromethane",
                   "incomprehensibilities"]
     for i in li:
-        if i not in long_words:
-            if len(i) >= 19:
+        if len(i) >= 19:
+            if i not in long_words:
                 return "spam!"
-
-    for j in range(len(parser.parse(text)["corrections"])):
-        if parser.parse(text)["corrections"][j]["definition"] == None:
+        elif i == "binod":
             return "spam!"
-    return "not spam"
+
+    try:
+        for i in li:
+            if parser.parse(i)["corrections"][0]["definition"] == None:
+                print(i)
+                return "spam!"
+    except:
+        pass
+    return "not spam."
 
 
 if __name__ == "__main__":

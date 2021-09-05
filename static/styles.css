@@ -8,7 +8,7 @@
     color: rgb(255, 255, 255);
     background: rgba(255, 255, 255, 0.1);
     max-width: 1145px;
-    max-height: 530px;
+    max-height: 480px;
   }
 }
 @media only screen and (max-width: 430px) {
@@ -25,7 +25,7 @@
     background: rgba(255, 255, 255, 0.1);
   }
 }
-/* .container  .card .content .input {
+/* .container .card .content .input {
   font-size: 40px;
   color: rgba(255, 255, 255, 0.7);
   background: rgba(255, 255, 255, 0.1);
@@ -46,8 +46,7 @@ body {
   justify-content: center;
   align-items: center;
   min-width: auto;
-  background-color: #000000;
-  background-image: linear-gradient(147deg, #000000 0%, #04619f 74%);
+  background: rgb(21, 17, 61);
 }
 
 body::before {
