@@ -17,8 +17,8 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/HashboticsAPI/<text>")
-def HashboticsAPI(text):
+@app.route("/HashedboticsAPI/<text>")
+def HashedboticsAPI(text):
     result = is_spam(text)
     return jsonify(result)
 
@@ -56,8 +56,7 @@ def is_spam(text):
                 print(i)
                 return "spam!"
     except:
-        pass
-    return "not spam."
+        return "not spam."
 
 
 if __name__ == "__main__":
