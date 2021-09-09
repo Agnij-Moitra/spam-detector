@@ -50,8 +50,7 @@ def is_spam(text):
                 print(i)
                 return "spam!"
     except:
-        pass
-    return "not spam."
+        return "not spam."
 
 
 if __name__ == "__main__":
