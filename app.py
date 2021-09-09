@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 import pickle
 from gingerit.gingerit import GingerIt
 import re
@@ -15,6 +15,12 @@ def index():
     if request.method == "POST":
         return render_template("check.html", message=result)
     return render_template("index.html")
+
+
+@app.route("/HashboticsAPI/<text>")
+def HashboticsAPI(text):
+    result = is_spam(text)
+    return jsonify(result)
 
 
 def is_spam(text):
