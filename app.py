@@ -52,8 +52,7 @@ def is_spam(text):
 
     try:
         for i in li:
-            if parser.parse(i)["corrections"][0]["definition"] == None:
-                print(i)
+            if parser.parse(i)["corrections"][0]["definition"] is None:
                 return "spam!"
     except:
         return "not spam."
