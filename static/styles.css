@@ -7,8 +7,8 @@
     font-size: 1.8em;
     color: rgb(255, 255, 255);
     background: rgba(255, 255, 255, 0.1);
-    max-width: 1145px;
-    max-height: 530px;
+    max-width: 1170px;
+    max-height: 480px;
   }
 }
 @media only screen and (max-width: 430px) {
@@ -20,6 +20,8 @@
     padding: 5px;
     width: auto;
     height: auto;
+    min-width: 270px;
+    min-height: 180px;
     font-size: 1em;
     color: rgb(255, 255, 255);
     background: rgba(255, 255, 255, 0.1);
@@ -46,7 +48,7 @@ body {
   justify-content: center;
   align-items: center;
   min-width: auto;
-  background: #161623;
+  background: rgb(21, 17, 61);
 }
 
 body::before {

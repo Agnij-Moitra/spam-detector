@@ -1,7 +1,11 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 import pickle
+from gingerit.gingerit import GingerIt
+import re
 
 app = Flask(__name__)
+
+parser = GingerIt()
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -13,16 +17,46 @@ def index():
     return render_template("index.html")
 
 
+@app.route("/HashedboticsAPI/<text>")
+def HashedboticsAPI(text):
+    result = is_spam(text)
+    return jsonify(result)
+
+
 def is_spam(text):
     with open('model_pickle', "rb") as f:
         imported_model = pickle.load(f)
-    text = str(text)
-    text = text.replace("\n", " ")
+    text = str(text).lower()
     result = imported_model.predict([f"{text}"])
-    if result[0] == 0:
-        return "not spam"
-    return "spam!"
+    if result[0] == 1:
+        return "spam!"
+
+    li = re.findall(r"[\w']+", text)
+    long_words = ["thiruvananthapuram",
+                  "pneumonoultramicroscopicsilicovolcanoconiosis",
+                  "hippopotomonstrosesquippedaliophobia",
+                  "supercalifragilisticexpialidocious",
+                  "pseudopseudohypoparathyroidism",
+                  "floccinaucinihilipilification",
+                  "antidisestablishmentarianism",
+                  "honorificabilitudinitatibus",
+                  "thyroparathyroidectomized",
+                  "dichlorodifluoromethane",
+                  "incomprehensibilities"]
+    for i in li:
+        if len(i) >= 19:
+            if i not in long_words:
+                return "spam!"
+        elif i == "binod":
+            return "spam!"
+
+    try:
+        for i in li:
+            if parser.parse(i)["corrections"][0]["definition"] is None:
+                return "spam!"
+    except:
+        return "not spam."
 
 
 if __name__ == "__main__":
-    app.run(debug=True) 
+    app.run(debug=True)
